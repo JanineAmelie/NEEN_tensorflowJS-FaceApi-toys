@@ -86,6 +86,7 @@ function detectFaceInRealTime(video, net, task) {
       const canvas = $('#output').get(0)
       const dims = faceapi.matchDimensions(canvas, video, true)
       const resizedResult = faceapi.resizeResults(result, dims)
+
       if (task == 'landmarks') {
         faceapi.draw.drawFaceLandmarks(canvas, resizedResult)
       }
@@ -109,14 +110,10 @@ function detectFaceInRealTime(video, net, task) {
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
         // draw the emoji
-
-
-        ctx.fillText(emoji, (resizedResult.detection.box.width / 2) + resizedResult.detection.box.left, (resizedResult.detection.box.height / 2) + resizedResult.detection.box.top + 50) // results in upperleft
+        ctx.fillText(emoji, (resizedResult.detection.box.width / 2) + resizedResult.detection.box.left, (resizedResult.detection.box.height / 2) + resizedResult.detection.box.top + 50);
+        faceapi.draw.drawFaceExpressions(canvas, resizedResult, minConfidence)
       }
-
     }
-
-    // setTimeout(() => onPlay())
 
     requestAnimationFrame(poseDetectionFrame);
   }
