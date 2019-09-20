@@ -10,11 +10,18 @@
   },
   "author": "janineLourens",
   "license": "MIT",
+  "keywords": [
+    "TensorFlowJS",
+    "Face-api"
+  ],
   "dependencies": {
     "express": "^4.17.1",
     "face-api.js": "^0.20.1",
     "opn": "^6.0.0",
     "request": "^2.88.0"
+  },
+  "engines": {
+    "node": "10.x"
   },
   "devDependencies": {
     "gh-pages": "^2.1.1"
