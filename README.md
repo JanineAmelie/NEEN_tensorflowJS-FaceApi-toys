@@ -1,12 +1,16 @@
 
+![Image](https://www.dropbox.com/s/hz61dutfzv0y870/emojisssss2.gif?raw=1)
 ![Image](https://www.dropbox.com/s/yffl8ooywgkgs0r/demo.gif?raw=1)
 
 # NEEN_tensorflowJS-FaceApi-toys
-
 ## Current Features:
 
 - Draws emojis on top of video feed data based on facial expression
 
+
+#### Attribution
+
+Fork of Piotr Ilczuk's  "GoogleDay"  workshop repository https://github.com/pilczuk
 
 ### APIs Used:
 
