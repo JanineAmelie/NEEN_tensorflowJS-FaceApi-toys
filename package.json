@@ -1,16 +1,22 @@
 {
-  "name": "faceapi-js-boilerplate",
+  "homepage": "http://JanineLourens.github.io/NEEN_tensorflowJS-FaceApi-toys",
+  "name": "Neen FaceApi Tensorflow playground",
   "version": "1.0.0",
-  "description": "Boilerplate code for training",
+  "description": "practice repository for creating toys with TensorFlowJS and face-api",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
-  "author": "pilczuk",
+  "author": "janineLourens",
   "license": "MIT",
   "dependencies": {
     "express": "^4.17.1",
     "face-api.js": "^0.20.1",
     "opn": "^6.0.0",
     "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^2.1.1"
   }
 }
