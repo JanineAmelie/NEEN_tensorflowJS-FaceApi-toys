@@ -86,7 +86,8 @@ function detectFaceInRealTime(video, net, task) {
       const canvas = $('#output').get(0)
       const dims = faceapi.matchDimensions(canvas, video, true)
       const resizedResult = faceapi.resizeResults(result, dims)
-      faceapi.draw.drawDetections(canvas, resizedResult)
+      console.log('resizedResults', resizedResult);
+      // faceapi.draw.drawDetections(canvas, resizedResult)
       if (task == 'landmarks') {
         faceapi.draw.drawFaceLandmarks(canvas, resizedResult)
       }
@@ -104,7 +105,16 @@ function detectFaceInRealTime(video, net, task) {
       }
       if (task == 'expression') {
         const minConfidence = 0.05
-        faceapi.draw.drawFaceExpressions(canvas, resizedResult, minConfidence)
+        const emoji = getHighestExpression(resizedResult.expressions);
+        ctx.font = '300px serif'
+        // use these alignment properties for "better" positioning
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        // draw the emoji
+
+
+        ctx.fillText(emoji, (resizedResult.detection.box.width / 2) + resizedResult.detection.box.left, (resizedResult.detection.box.height / 2) + resizedResult.detection.box.top + 50) // results in upperleft
+
       }
 
     }
@@ -115,6 +125,22 @@ function detectFaceInRealTime(video, net, task) {
   }
   poseDetectionFrame();
 }
+
+const emoji = {
+  neutral: '😑',
+  happy: '😁',
+  sad: '😭',
+  angry: '😡',
+  fearful: '😨',
+  disgusted: '🤢',
+  surprised: '😱',
+};
+
+function getHighestExpression(obj) {
+  return emoji[Object.keys(obj).reduce(function (a, b) { return obj[a] > obj[b] ? a : b })];
+}
+
+
 
 async function start(task) {
   const net = await faceapi.nets.ssdMobilenetv1
