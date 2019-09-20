@@ -1,5 +1,3 @@
-
-![Image](https://www.dropbox.com/s/hz61dutfzv0y870/emojisssss2.gif?raw=1)
 ![Image](https://www.dropbox.com/s/yffl8ooywgkgs0r/demo.gif?raw=1)
 
 # NEEN_tensorflowJS-FaceApi-toys
