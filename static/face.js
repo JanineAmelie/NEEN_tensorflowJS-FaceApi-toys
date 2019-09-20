@@ -86,8 +86,6 @@ function detectFaceInRealTime(video, net, task) {
       const canvas = $('#output').get(0)
       const dims = faceapi.matchDimensions(canvas, video, true)
       const resizedResult = faceapi.resizeResults(result, dims)
-      console.log('resizedResults', resizedResult);
-      // faceapi.draw.drawDetections(canvas, resizedResult)
       if (task == 'landmarks') {
         faceapi.draw.drawFaceLandmarks(canvas, resizedResult)
       }
@@ -114,7 +112,6 @@ function detectFaceInRealTime(video, net, task) {
 
 
         ctx.fillText(emoji, (resizedResult.detection.box.width / 2) + resizedResult.detection.box.left, (resizedResult.detection.box.height / 2) + resizedResult.detection.box.top + 50) // results in upperleft
-
       }
 
     }
@@ -135,6 +132,9 @@ const emoji = {
   disgusted: '🤢',
   surprised: '😱',
 };
+
+// @TODO:
+// only change the emoji when it has a high confidence. as to reduce flickering
 
 function getHighestExpression(obj) {
   return emoji[Object.keys(obj).reduce(function (a, b) { return obj[a] > obj[b] ? a : b })];
