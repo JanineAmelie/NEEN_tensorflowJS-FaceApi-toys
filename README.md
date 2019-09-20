@@ -8,6 +8,15 @@
 - Draws emojis on top of video feed data based on facial expression
 
 
+### APIs Used:
+
+- https://github.com/justadudewhohacks/face-api.js?files=1
+- https://www.tensorflow.org/js
+
+#### Attribution
+
+Fork of Piotr Ilczuk's  "GoogleDay"  workshop repository https://github.com/pilczuk
+
 # How to Run
 In the root of the app, download all the project's dependencies
     ```bash
